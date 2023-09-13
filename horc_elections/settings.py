@@ -8,7 +8,7 @@ env = environ.Env()
 environ.Env.read_env(Path.joinpath(BASE_DIR, '.env'))
 
 SECRET_KEY = env("SECRET_KEY")
-DEBUG = False
+DEBUG = env("DEBUG")
 ALLOWED_HOSTS = [env('HOST_URL'),"localhost",'web-production-6d4b.up.railway.app']  
 
 # Application definition
