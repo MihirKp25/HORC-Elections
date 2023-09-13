@@ -8,8 +8,8 @@ env = environ.Env()
 environ.Env.read_env(Path.joinpath(BASE_DIR, '.env'))
 
 SECRET_KEY = env("SECRET_KEY")
-DEBUG = True
-ALLOWED_HOSTS = [env('HOST_URL'),"localhost"]
+DEBUG = False
+ALLOWED_HOSTS = [env('HOST_URL'),"localhost",'web-production-6d4b.up.railway.app']  
 
 # Application definition
 INSTALLED_APPS = [
@@ -61,15 +61,15 @@ ROOT_URLCONF = "horc_elections.urls"
 WSGI_APPLICATION = "horc_elections.wsgi.application"
 
 DATABASES = {
-    "local": {
+    "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     },
-    "heroku": dj_database_url.config(),
+    # "heroku": dj_database_url.config(),
 }
 
-default_database = env('DJANGO_DATABASE', default='local')
-DATABASES['default'] = DATABASES[default_database]
+# default_database = env('DJANGO_DATABASE', default='local')
+# DATABASES['default'] = DATABASES[default_database]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
