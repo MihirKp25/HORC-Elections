@@ -11,6 +11,7 @@ from .resources import *
 
 @admin.register(Candidate)
 class CandidateAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    search_fields = ['email']
     model = Candidate
     resource_class = Candidate_Resource
 
@@ -21,10 +22,12 @@ class PostAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 
 @admin.register(VoterList)
 class VoterListAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    search_fields = ['email']
     model = VoterList
     resource_class = VoterList_Resource
 
 @admin.register(Vote)
 class VoteAdmi(ImportExportModelAdmin,admin.ModelAdmin):
+    
     model = Vote
     resource_class = Vote_Resource
